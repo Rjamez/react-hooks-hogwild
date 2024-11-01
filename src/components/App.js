@@ -1,14 +1,42 @@
-import React from "react";
-import Nav from "./Nav";
+import React, { useState } from 'react';
+import hogsData from './porkers_data'; 
+import Nav from './components/Nav'; 
+import HogTile from './components/HogTile'; 
+import HogDetail from './components/HogDetail'; 
 
-import hogs from "../porkers_data";
+const App = () => {
+  const [hogs, setHogs] = useState(hogsData);
+  const [selectedHog, setSelectedHog] = useState(null);
 
-function App() {
-	return (
-		<div className="App">
-			<Nav />
-		</div>
-	);
-}
+  const handleHogClick = (hog) => {
+    setSelectedHog(hog);
+  };
+
+  return (
+    <div>
+      <Nav />
+      <div className="ui grid container">
+        {hogs.map(hog => (
+          <HogTile key={hog.name} hog={hog} onClick={handleHogClick} />
+        ))}
+      </div>
+      <HogDetail hog={selectedHog} />
+    </div>
+  );
+};
+const [selectedHog, setSelectedHog] = useState(null);
+
+const handleHogClick = (hog) => {
+  setSelectedHog(hog);
+};
+
+return (
+  <div>
+    {/* ... Nav and grid code */}
+    <HogDetail hog={selectedHog} />
+  </div>
+);
+
+
 
 export default App;
