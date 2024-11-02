@@ -1,3 +1,4 @@
+// HogForm.js
 import React, { useState } from "react";
 
 function HogForm({ addHog }) {

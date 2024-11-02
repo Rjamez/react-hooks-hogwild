@@ -1,3 +1,4 @@
+// HogTile.js
 import React, { useState } from "react";
 
 function HogTile({ name, image, specialty, weight, greased, highestMedal, hideHog }) {
