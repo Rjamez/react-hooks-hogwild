@@ -20,23 +20,9 @@ const App = () => {
           <HogTile key={hog.name} hog={hog} onClick={handleHogClick} />
         ))}
       </div>
-      <HogDetail hog={selectedHog} />
+      {selectedHog && <HogDetail hog={selectedHog} />}
     </div>
   );
 };
-const [selectedHog, setSelectedHog] = useState(null);
-
-const handleHogClick = (hog) => {
-  setSelectedHog(hog);
-};
-
-return (
-  <div>
-    {/* ... Nav and grid code */}
-    <HogDetail hog={selectedHog} />
-  </div>
-);
-
-
 
 export default App;
