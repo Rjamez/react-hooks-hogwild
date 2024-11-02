@@ -1,4 +1,3 @@
-// src/components/HogDetail.js
 import React from 'react';
 
 const HogDetail = ({ hog }) => {
